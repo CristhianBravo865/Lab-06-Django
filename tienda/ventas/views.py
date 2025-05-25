@@ -20,3 +20,6 @@ def registrar_venta(request):
         formset = DetalleVentaFormSet()
 
     return render(request, 'ventas/registrar_venta.html', {'formset': formset})
+def lista_ventas(request):
+    ventas = Venta.objects.all().order_by('-fecha')
+    return render(request, 'ventas/lista_ventas.html', {'ventas': ventas})
